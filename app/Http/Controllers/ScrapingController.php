@@ -92,7 +92,7 @@ class ScrapingController extends Controller
             $crawler = new Crawler($pageContent);
             $pageTitle = $crawler->filter('title')->text();
             $price = $crawler->filter('.prc-dsc, .product-card__price--new')->text();
-            $images = $crawler->filter('img.swiper-lazy')->each(function ($node) {
+            $images = $crawler->filter('.product-container img, img.swiper-lazy')->each(function ($node) {
                 return $node->attr('src');
             });
 
